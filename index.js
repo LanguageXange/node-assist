@@ -18,16 +18,11 @@ io.on("connection", function (socket) {
     if (text.includes("code") || text.includes("learn")) {
       // emit result back to the browser
       socket.emit("bot message", "Here is a blog post you might like");
-      if (typeof window !== "undefined") {
-        window.open(
-          "https://zerotomastery.io/blog/should-i-learn-to-code",
-          "_blank"
-        );
-      } else {
-        open("https://zerotomastery.io/blog/should-i-learn-to-code", {
-          wait: true,
-        });
-      }
+
+      open("https://zerotomastery.io/blog/should-i-learn-to-code", {
+        wait: true,
+      });
+      return;
     }
 
     if (text.includes("time")) {
@@ -45,11 +40,8 @@ io.on("connection", function (socket) {
         "bot message",
         "You might want to check out different career paths on Zero to Mastery"
       );
-      if (typeof window !== "undefined") {
-        window.open("https://zerotomastery.io/career-paths/", "_blank");
-      } else {
-        open("https://zerotomastery.io/career-paths/", { wait: true });
-      }
+
+      open("https://zerotomastery.io/career-paths/", { wait: true });
     }
   });
 });
