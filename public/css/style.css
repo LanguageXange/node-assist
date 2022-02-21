@@ -1,0 +1,103 @@
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Monospace", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  color: #333;
+}
+h1 {
+  margin: 0;
+  font-weight: 400;
+  font-size: 2em;
+  text-align: center;
+}
+p {
+  font-size: 1.2em;
+  text-align: center;
+}
+
+section {
+  margin: 2em auto;
+  width: 500px;
+  border: 1px solid white;
+}
+button {
+  display: block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 200px;
+  height: 200px;
+  border: 0;
+  border-radius: 50%;
+  padding: 0.7em 1em;
+  margin: 4em auto 3em;
+  text-align: center;
+  color: #fff;
+  background: #4e0ffbe1;
+  box-shadow: 5px 15px 30px 9px rgba(56, 138, 231, 0.4);
+  will-change: transform, filter;
+  transition: all 0.3s ease-out;
+}
+button .fas {
+  font-size: 100px;
+  line-height: 200px;
+  margin: 0;
+}
+.fas.hide {
+  display: none;
+}
+button:hover {
+  transform: scale(0.92);
+}
+button:active {
+  filter: brightness(0.8);
+}
+button:focus {
+  outline: 0;
+}
+
+/* reveal */
+.lds-ripple.reveal {
+  display: inline-block;
+}
+.lds-ripple {
+  display: none;
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+.lds-ripple div {
+  position: absolute;
+  border: 4px solid #fff;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+@keyframes lds-ripple {
+  0% {
+    top: 50px;
+    left: 50px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 100px;
+    height: 100px;
+    opacity: 0;
+  }
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Web Speech API DEMO" />
+    <meta name="author" content="Awesome person" />
+
+    <title>Web Speech API DEMO</title>
+
+    <script
+      src="https://kit.fontawesome.com/c2cc11a34d.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <section>
+      <h1>Personal Assistant 1.0.0</h1>
+
+      <button>
+        <i class="fas fa-microphone"></i>
+
+        <div class="lds-ripple">
+          <div></div>
+          <div></div>
+        </div>
+      </button>
+
+      <div>
+        <p><em class="output"></em></p>
+      </div>
+    </section>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"
+      integrity="sha512-MgkNs0gNdrnOM7k+0L+wgiRc5aLgl74sJQKbIWegVIMvVGPc1+gc1L2oK9Wf/D9pq58eqIJAxOonYPVE5UwUFA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
