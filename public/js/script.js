@@ -33,7 +33,7 @@ startButton.addEventListener("click", () => {
 });
 
 recognition.addEventListener("result", (e) => {
-  console.log(e.results); // e.results :SpeechRecognitionResult object
+  //console.log(e.results); // e.results :SpeechRecognitionResult object
   const last = e.results.length - 1;
   const text = e.results[last][0].transcript;
   socket.emit("user message", text);
