@@ -31,10 +31,7 @@ io.on("connection", function (socket) {
     }
 
     if (text.includes("time")) {
-      const originalDate = new Date();
-      const date = originalDate.toLocaleString("en-US", {
-        timeZone: "America/Los_Angeles",
-      });
+      const date = new Date();
       const hr = date.getHours();
       const min = date.getMinutes();
       let displayMin = min < 10 ? "0" + min : min;
