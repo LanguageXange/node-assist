@@ -42,7 +42,6 @@ recognition.addEventListener("result", (e) => {
 recognition.addEventListener("speechend", () => {
   // the logic here is to avoid calling the stop function again when we click the button
   listening ? stop() : null;
-  listening = !listening;
 });
 
 recognition.addEventListener("error", (e) => {
