@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const open = require("open");
+const open = require("open"); // module not workign when push to heroku ?
 
 app.use(express.static(__dirname + "/public"));
 app.use(express.static(__dirname + "/views"));
@@ -18,13 +18,23 @@ io.on("connection", function (socket) {
     if (text.includes("code") || text.includes("learn")) {
       // emit result back to the browser
       socket.emit("bot message", "Here is a blog post you might like");
-      open("https://zerotomastery.io/blog/should-i-learn-to-code", {
-        wait: true,
-      });
+      if (typeof window !== "undefined") {
+        window.open(
+          "https://zerotomastery.io/blog/should-i-learn-to-code",
+          "_blank"
+        );
+      } else {
+        open("https://zerotomastery.io/blog/should-i-learn-to-code", {
+          wait: true,
+        });
+      }
     }
 
     if (text.includes("time")) {
-      const date = new Date();
+      const originalDate = new Date();
+      const date = originalDate.toLocaleString("en-US", {
+        timeZone: "America/Los_Angeles",
+      });
       const hr = date.getHours();
       const min = date.getMinutes();
       let displayMin = min < 10 ? "0" + min : min;
@@ -38,7 +48,11 @@ io.on("connection", function (socket) {
         "bot message",
         "You might want to check out different career paths on Zero to Mastery"
       );
-      open("https://zerotomastery.io/career-paths/", { wait: true });
+      if (typeof window !== "undefined") {
+        window.open("https://zerotomastery.io/career-paths/", "_blank");
+      } else {
+        open("https://zerotomastery.io/career-paths/", { wait: true });
+      }
     }
   });
 });
