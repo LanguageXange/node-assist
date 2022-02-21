@@ -59,6 +59,10 @@ const botSpeak = (text) => {
   // potential issue : infinite loop - because it mentions the keyword and recognition is listening to the output of speechSynthesis
 };
 
-socket.on("bot message", (answerText) => {
-  botSpeak(answerText);
+socket.on("bot message", (answer) => {
+  const { msg, link } = answer;
+  botSpeak(msg);
+  if (link) {
+    window.open(link, "_blank");
+  }
 });

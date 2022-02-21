@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
-const open = require("open"); // module not workign when push to heroku ?
+const open = require("open"); // module not workign when push to heroku  ?
+// temp solution is to move the code to front end so that we have access to the window object
 
 app.use(express.static(__dirname + "/public"));
 app.use(express.static(__dirname + "/views"));
@@ -17,31 +18,30 @@ io.on("connection", function (socket) {
   socket.on("user message", (text) => {
     if (text.includes("code") || text.includes("learn")) {
       // emit result back to the browser
-      socket.emit("bot message", "Here is a blog post you might like");
-
-      open("https://zerotomastery.io/blog/should-i-learn-to-code", {
-        wait: true,
+      socket.emit("bot message", {
+        msg: "Here is a blog post you might like",
+        link: "https://zerotomastery.io/blog/learn-to-code-for-free",
       });
-      return;
+
+      // open("https://zerotomastery.io/blog/learn-to-code-for-free", {
+      //   wait: true,
+      // });
     }
 
-    if (text.includes("time")) {
-      const date = new Date();
-      const hr = date.getHours();
-      const min = date.getMinutes();
-      let displayMin = min < 10 ? "0" + min : min;
-      let displayTime =
-        hr > 12 ? `${hr - 12}:${displayMin} PM` : `${hr}:${displayMin} AM`;
-      socket.emit("bot message", `Right now it is ${displayTime}`);
+    if (text.includes("get hired")) {
+      socket.emit("bot message", {
+        msg: "This career path is all you need! ",
+        link: "https://zerotomastery.io/career-paths/i-just-want-to-get-hired",
+      });
     }
     if (text.includes("developer")) {
       // emit result back to the browser
-      socket.emit(
-        "bot message",
-        "You might want to check out different career paths on Zero to Mastery"
-      );
+      socket.emit("bot message", {
+        msg: "You might want to check out different career paths on Zero to Mastery",
+        link: "https://zerotomastery.io/career-paths/",
+      });
 
-      open("https://zerotomastery.io/career-paths/", { wait: true });
+      // open("https://zerotomastery.io/career-paths/", { wait: true });
     }
   });
 });
