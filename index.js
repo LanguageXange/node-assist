@@ -23,9 +23,9 @@ io.on("connection", function (socket) {
         link: "https://zerotomastery.io/blog/learn-to-code-for-free",
       });
 
-      // open("https://zerotomastery.io/blog/learn-to-code-for-free", {
-      //   wait: true,
-      // });
+      open("https://zerotomastery.io/blog/learn-to-code-for-free", {
+        wait: true,
+      });
     }
 
     if (text.includes("get hired")) {
@@ -41,7 +41,7 @@ io.on("connection", function (socket) {
         link: "https://zerotomastery.io/career-paths/",
       });
 
-      // open("https://zerotomastery.io/career-paths/", { wait: true });
+      open("https://zerotomastery.io/career-paths/", { wait: true });
     }
   });
 });
