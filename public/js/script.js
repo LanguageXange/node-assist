@@ -61,7 +61,7 @@ const botSpeak = (text) => {
 socket.on("bot message", (answer) => {
   const { msg, link } = answer;
   botSpeak(msg);
-  // if (link) {
-  //   window.open(link, "_blank");
-  // }
+  if (link) {
+    window.open(link, "_blank");
+  }
 });
