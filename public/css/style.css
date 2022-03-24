@@ -20,6 +20,12 @@ h1 {
   font-size: 2em;
   text-align: center;
 }
+
+span {
+  text-align: center;
+  display: block;
+  margin-top: 15px;
+}
 p {
   font-size: 1.2em;
   text-align: center;

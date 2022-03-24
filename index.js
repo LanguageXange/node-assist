@@ -30,8 +30,21 @@ io.on("connection", function (socket) {
 
     if (text.includes("get hired")) {
       socket.emit("bot message", {
-        msg: "This career path is all you need! ",
+        msg: "Here is a career guide you might like",
         link: "https://zerotomastery.io/career-paths/i-just-want-to-get-hired",
+      });
+    }
+
+    if (text.includes("get started")) {
+      socket.emit("bot message", {
+        msg: "Let's find your career path together!",
+        link: "https://zerotomastery.io/tech-career-path-quiz/",
+      });
+    }
+    if (text.includes("web 3")) {
+      socket.emit("bot message", {
+        msg: "Here is a course you might like",
+        link: "https://zerotomastery.io/courses/introduction-to-web3/",
       });
     }
     if (text.includes("developer")) {
