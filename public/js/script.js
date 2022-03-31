@@ -6,7 +6,7 @@ const startButton = document.querySelector("button");
 const microphone = document.querySelector(".fa-microphone");
 const output = document.querySelector(".output");
 const loading = document.querySelector(".lds-ripple");
-// https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition
+
 recognition.lang = "en-US";
 recognition.interimResults = false;
 recognition.continuous = true;
@@ -40,8 +40,8 @@ recognition.addEventListener("result", (e) => {
 });
 
 recognition.addEventListener("speechend", () => {
-  // the logic here is to avoid calling the stop function again when we click the button
   listening ? stop() : null;
+  listening = !listening;
 });
 
 recognition.addEventListener("error", (e) => {
@@ -50,12 +50,11 @@ recognition.addEventListener("error", (e) => {
 });
 
 // receive message from server
-
 const botSpeak = (text) => {
   const synth = window.speechSynthesis;
   const utterance = new SpeechSynthesisUtterance(text);
   synth.speak(utterance);
-  // potential issue : infinite loop - because it mentions the keyword and recognition is listening to the output of speechSynthesis
+  // Note: it's possible to have infinite loop if the bot message includes keywords
 };
 
 socket.on("bot message", (answer) => {
