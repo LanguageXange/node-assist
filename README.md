@@ -1,3 +1,9 @@
+# Update: 
+The live demo is no longer working as Heroku has removed free dynos plan 😭 
+Please find alternatives for hosting.
+
+
+
 ## Simple Voice Assistant with Socket.IO, Web Speech API, & Express.
 
 ![Demo App](/demo.png)
